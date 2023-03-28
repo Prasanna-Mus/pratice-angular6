@@ -1,0 +1,16 @@
+.my-background{
+    border: 0;
+    padding: 0%;
+   
+    background-size: cover;
+    font-family: 'Courier New', Courier, monospace;
+    width: 100%;
+    height: 625px;
+}
+h3{
+    font-family: play;
+    text-align: center;
+    color:darkgreen;
+    font-weight: bold;
+    font-size: 35px;
+}

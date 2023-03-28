@@ -1,0 +1,30 @@
+<div class="box">
+    <h2>Login Register</h2>
+    <form [formGroup]="registrationForm">
+        <div class="form-group inputBox"  required>
+            <label>UserName:   </label>
+            <input type="text" formControlName="userName" class="form-control">
+          
+        </div>
+
+        <div  class="form-group inputBox" required>
+            <label>UserPassword:  </label>
+            <input type="password" formControlName="password" class="form-control">
+          
+        </div>
+
+        <div  class="form-group inputBox" required>
+            <label>conformPassword: </label>
+            <input type="password" formControlName="conformpassword" class="form-control">
+         
+        </div> 
+        <Pre></Pre>
+        <div >
+          <button  class='btn btn-primary' (click)="Submit()" type="submit" value="register"> Submit</button>
+        </div> 
+    </form>
+    <pre></pre>
+    <div class="MyValues">
+    {{registrationForm.value | json}}
+</div>
+</div>

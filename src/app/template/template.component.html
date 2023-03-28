@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forms</title>
+</head>
+<body>
+    <div class="container_fluid">
+      
+        <h2>Registration Form</h2>
+        <form #myForm ='ngForm' (ngSubmit)="onSubmit(myForm)" novalidate>
+        <div class="row">
+            <div class="col-6">
+                <div class="form-group">
+                    <img [src] ="ImagePath" 
+                    style="width: 300px;height: 200px;"><pre></pre>
+                    <input type="text" class="form-control" [class.is-invalid]="name.invalid && name.touched" placeholder="Username" aria-label="Username" 
+                    [(ngModel)]="userModel.Username" #name="ngModel" name="username" required>
+                    <small class="text-danger"[class.d-none]="name.valid || name.untouched">Name is required</small>
+                </div> <br/>
+
+                <!-- <div class="myFormdata">
+                    {{name.className}};
+                </div> -->
+
+                <div class="form-group">
+                    <input type="email" class="form-control" placeholder="Email" #email="ngModel" 
+                    [class.is-invalid]="email.invalid && email.touched" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$" 
+                    [(ngModel)]="userModel.email" aria-required="true"
+                    name="email" required>
+                    <div *ngIf="email.errors && (email.invalid || email.touched)">
+                        <small class="text-danger" *ngIf="email.errors?.['required']">Email is required</small>
+                        <small class="text-danger" *ngIf="email.errors?.['pattern']">invalid pattern</small>
+                    </div>
+                </div>  <br />
+
+                <div class="form-group">  
+                    <input type="tel" class="form-control" placeholder="Mobilenumber"  [class.is-invalid]="tel.invalid && tel.touched" 
+                    #tel="ngModel" [(ngModel)]="userModel.mobilenumber" name="tel" minlength="10" required>
+                     <small class="text-danger"  *ngIf="name.errors?.['minlength']">
+                        Name must be at least 10 characters long.
+                     </small>
+                </div>
+
+            </div>
+            <div class="col-6">
+                <img [src] ="ImagePath" 
+                style="width: 300px;height: 200px;"><pre></pre>
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio1"  [(ngModel)]="userModel.gender" 
+                     value="male">
+                    <label class="form-check-label" for="inlineRadio1">Male</label>
+                </div>
+
+                <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="inlineRadio2" [(ngModel)]="userModel.gender" 
+                    value="female">
+                    <label class="form-check-label" for="inlineRadio2">Female</label>
+                </div><br />
+                
+                <div class="input-group mb-3">
+                    <select (blur)="validateCourse(mycourse.value)" 
+                             (change)="validateCourse(mycourse.value)"
+                    required #mycourse="ngModel" [class.is.invalid]="courseHadError && mycourse.touched"
+                    
+                    [(ngModel)]="userModel.course" name="course" >
+                      <option value="default">Choose Topic...</option>
+                      <option *ngFor="let x of course">{{x}}</option>
+                    </select>  
+                    <small class="text-danger" [class.d-none]="!courseHadError|| mycourse.untouched"> Please choose any course</small>
+                 </div> 
+
+                <div class="form-check">
+                        <input class="form-check-input" type="checkbox" value="" id="flexCheckDefault" [(ngModel)]="userModel.remeber"   name="check">
+                        <label class="form-check-label" for="flexCheckDefault">
+                        Remaining Me
+                        </label>
+                </div>
+            </div>
+        </div>
+        <pre></pre>
+    <div class="button">
+        <button type="submit" (click)="onSubmit1()" class="btn btn-primary">Submit</button>
+    </div>
+    </form>
+    <!-- <div class="myFormdata">
+        {{myForm.form.valid}}
+    </div> -->
+ <!-- <div class="myFormdata">
+           {{myForm.value | json}};
+ </div>
+
+ <div class="myFormdata">
+    {{userModel | json}};
+</div> -->
+
+</div>
+</body>
+</html>

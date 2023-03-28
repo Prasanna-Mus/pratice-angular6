@@ -1,0 +1,40 @@
+*{
+    font-family: 'Courier New', Courier, monospace;
+}
+.box{
+    position: absolute;
+    top:50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    width: 400px;
+    background:rgba(19, 92, 160, 0.4) ;
+    
+    padding: 40px;
+    box-sizing: border-box;
+    box-shadow: 0 15px 25px rgba(0, 0,0,1);
+}
+.boc h2{
+    margin: 0 0 30px;
+    padding: 0%;
+    color: white;
+    text-align: center;
+}
+.box .inputbox{
+ position: relative;
+}
+.box .inputBox input{
+    width: 100%;
+    padding: 10px 0;
+    font-size: 16px;
+    color: black;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    border: none;
+    border-bottom: 1px solid #fff;
+    background: transparent;
+}
+.MyValues{
+    color: black;
+    font-size: 16px;
+}
